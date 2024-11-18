@@ -9,12 +9,22 @@ const (
 func main() {
 	//for each rune in the starting string that is equal to ( +1, ) -1 and work out what the final sum
 	totalSum := 0
-	for _, r := range startingString {
+	targetSum := -1
+	var targetPosition []int
+
+	for i, r := range startingString {
 		if r == '(' {
 			totalSum++
 		} else if r == ')' {
 			totalSum--
 		}
+		if totalSum == targetSum {
+			targetPosition = append(targetPosition, i)
+
+		}
 	}
+	fmt.Println(len(startingString))
+	fmt.Println(targetPosition[0])
 	fmt.Println(totalSum)
+
 }
